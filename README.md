@@ -88,5 +88,31 @@ Delete Ticket (Admin):
 Endpoint: DELETE api/deleteticket/<int:pk>/
 Header: Authorization: Bearer <JWT token>
 
+Authentication and Permissions
+JWT Authentication
+This project uses JWT (JSON Web Token) for authentication.
+When a user logs in, they receive an access token (short-lived) and a refresh token (long-lived).
+You need to include the access token in the Authorization header with every request that requires authentication.
+
+Handling Authentication Credentials Issue
+If you encounter "Authentication credentials were not provided", make sure you:
+
+Include the JWT token in the Authorization header in this format:
 
 
+Authorization: Bearer <your_access_token>
+Confirm that JWT authentication is properly set up in settings.py:
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+}
+Use the login endpoint to retrieve the token, and use it in subsequent requests.
+
+Handling Registration Permissions Issue
+If the UserRegistrationView is asking for authentication, ensure that:
+
+The view uses the AllowAny permission to allow unauthenticated users to register:
+
+permission_classes = [AllowAny]
