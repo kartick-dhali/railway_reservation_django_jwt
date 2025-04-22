@@ -26,25 +26,6 @@ Here's a README.md file that includes the key aspects of your project, with expl
 Railway Reservation System API
 This is a RESTful API for a Railway Reservation System built using Django REST Framework with JWT role-based authentication and authorization.
 
-Features
-User Authentication:
-
-Users can register, log in, and log out.
-JWT (JSON Web Tokens) are used for authentication.
-Role-Based Permissions:
-
-Regular Users: Can create, delete, and view their own tickets.
-Admins: Can view and update tickets created by any user.
-Ticket Management:
-
-Users: Can create, view, and delete tickets.
-Admins: Can view and update any ticket.
-#Requirements
-Python 3.x
-Django 3.x+
-Django REST Framework
-Simple JWT (djangorestframework-simplejwt)
-
 #Setup Instructions
 Clone the repository:
 git clone https://github.com/yourusername/railway_reservation_django_jwt.git
